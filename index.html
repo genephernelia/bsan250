@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courseflow | Assignment planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Courseflow home"><span class="brand-mark">cf</span><span>courseflow</span></a>
+      <div class="semester-switcher"><span class="switcher-label">CURRENT TERM</span><button type="button">Fall 2025 <span>⌄</span></button></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#calendar"><span class="nav-icon">▦</span>Calendar</a>
+        <a class="nav-item" href="#assignments"><span class="nav-icon">☷</span>Assignments <b id="navCount">7</b></a>
+        <a class="nav-item" href="#courses"><span class="nav-icon">◫</span>Courses</a>
+      </nav>
+      <div class="side-section" id="courses"><div class="side-heading">MY COURSES <button type="button" class="plus-button" aria-label="Add course">+</button></div><a class="course-link" href="#"><i class="course-dot blue"></i>Business Analytics <em>BA</em></a><a class="course-link" href="#"><i class="course-dot coral"></i>Consumer Behavior <em>CB</em></a><a class="course-link" href="#"><i class="course-dot green"></i>Operations Management <em>OM</em></a><a class="course-link" href="#"><i class="course-dot yellow"></i>Marketing Strategy <em>MS</em></a></div>
+      <div class="sidebar-bottom"><a class="nav-item" href="#"><span class="nav-icon">⚙</span>Settings</a><div class="profile"><div class="avatar">GP</div><div><strong>Genevieve P.</strong><small>Student account</small></div><span class="more">•••</span></div></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" aria-label="Open menu">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong>My calendar</strong></div><div class="top-actions"><button class="icon-button" aria-label="Notifications">♧<i></i></button><div class="top-avatar">GP</div></div></header>
+      <section class="content-wrap" id="calendar">
+        <div class="welcome-row"><div><p class="eyebrow">THURSDAY, OCTOBER 16, 2025</p><h1>Your week, in focus.</h1><p class="intro">Your assignments are organized around the time you actually have.</p></div><button class="primary-button" id="openModal"><span>+</span> Add assignment</button></div>
+        <div class="stats-grid"><div class="stat-card accent"><div class="stat-top"><span>THIS WEEK</span><span class="stat-symbol">↗</span></div><strong>12.5 <small>hrs</small></strong><p>planned study time</p><div class="progress"><span style="width: 62%"></span></div><small class="progress-note">62% of your weekly goal</small></div><div class="stat-card"><div class="stat-top"><span>UP NEXT</span><span class="mini-dot coral"></span></div><strong>3</strong><p>assignments due</p><a class="stat-link" href="#assignments">View assignments <span>→</span></a></div><div class="stat-card"><div class="stat-top"><span>YOUR STREAK</span><span class="stat-symbol fire">✦</span></div><strong>6 <small>days</small></strong><p>of staying on track</p><div class="streaks"><i></i><i></i><i></i><i></i><i></i><i class="today"></i><i></i></div></div></div>
+        <div class="calendar-panel"><div class="panel-header"><div><h2>October 13 – 19, 2025</h2><p>Week 8 <span class="divider">·</span> 4 courses</p></div><div class="calendar-controls"><button class="today-button" id="todayButton">Today</button><button aria-label="Previous week">‹</button><button aria-label="Next week">›</button><button class="view-button">Week <span>⌄</span></button></div></div><div class="week-grid"><div class="time-column"><span></span><span>8 AM</span><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span><span>2 PM</span><span>3 PM</span><span>4 PM</span><span>5 PM</span></div><div class="days" id="calendarDays"></div></div><div class="calendar-footer"><span class="legend-dot blue"></span> Planned work <span class="legend-dot coral"></span> Due date <span class="footer-note">Your schedule updates automatically when you add an assignment.</span></div></div>
+        <section class="assignments-section" id="assignments"><div class="section-title"><div><h2>All assignments</h2><p>Sorted by what needs your attention first.</p></div><div class="filters"><button class="filter active">All <span id="allCount">7</span></button><button class="filter">To do <span>5</span></button><button class="filter">Done <span>2</span></button></div></div><div class="assignment-list" id="assignmentList"></div></section>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="modal" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close-button" id="closeModal" aria-label="Close">×</button><p class="eyebrow">NEW WORK ITEM</p><h2 id="modalTitle">Add an assignment</h2><p class="modal-copy">Courseflow will find time for it on your calendar.</p><form id="assignmentForm"><label>Assignment name<input name="name" required placeholder="e.g. Case study draft"></label><label>Course<select name="course"><option>Business Analytics</option><option>Consumer Behavior</option><option>Operations Management</option><option>Marketing Strategy</option></select></label><div class="form-row"><label>Due date<input name="due" type="date" required></label><label>Estimated hours<input name="hours" type="number" min="0.5" max="40" step="0.5" value="2" required></label></div><button class="primary-button submit-button" type="submit">Add to calendar <span>→</span></button></form></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
